@@ -18,11 +18,17 @@ npm run build
 npm run preview
 ```
 
+Run the same source and production-build verification used by CI with:
+
+```sh
+npm run verify
+```
+
 ## GitLab setup
 
 1. Create an empty GitLab project and push this repository to it.
 2. Make `main` the default branch.
-3. Pushes and merge requests run the `build-site` job.
+3. Pushes and merge requests run the `build-site` job. It verifies Node and npm, performs a clean lockfile install with an explicit install-script allowlist, validates and audits the dependency tree, checks the Astro source, and creates a production build.
 4. Successful builds on the default branch run `deploy-pages` and publish `dist/`.
 5. Find the published address under **Deploy > Pages** in GitLab.
 

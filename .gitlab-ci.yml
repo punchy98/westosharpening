@@ -4,6 +4,9 @@ stages:
 
 default:
   image: node:24-bookworm-slim
+  before_script:
+    - node --version
+    - npm --version
   cache:
     key:
       files:
@@ -18,7 +21,10 @@ variables:
 build-site:
   stage: test
   script:
-    - npm ci --prefer-offline
+    - npm ci --prefer-offline --strict-allow-scripts
+    - npm ls --all
+    - npm audit --audit-level=high
+    - npm run check
     - npm run build
   artifacts:
     paths:
@@ -30,6 +36,7 @@ build-site:
 
 deploy-pages:
   stage: deploy
+  before_script: []
   needs:
     - job: build-site
       artifacts: true
