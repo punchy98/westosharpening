@@ -34,6 +34,12 @@ npm run verify
 
 The Astro configuration reads GitLab's `CI_PAGES_URL` automatically, including project subpaths. For a custom production URL, add a CI/CD variable named `SITE_URL`, such as `https://westosharpening.com`.
 
+### Debian shell runner
+
+The pipeline supports a GitLab shell executor on Debian 12. It uses `scripts/ci/setup-node.sh` to install the pinned Node.js release, including npm, inside the job workspace when that exact version is not already available. The downloaded archive is checked against Node.js's published SHA-256 checksum and cached for later jobs.
+
+The runner needs `tar`, `sha256sum`, and one HTTPS download option: `curl`, `wget`, or Python 3. A normal Debian 12 installation typically already provides these; the script reports the missing prerequisite clearly if it does not.
+
 ## Project structure
 
 - `src/pages/index.astro` contains the page content.
@@ -41,4 +47,5 @@ The Astro configuration reads GitLab's `CI_PAGES_URL` automatically, including p
 - `src/layouts/BaseLayout.astro` contains document metadata and the shared page shell.
 - `src/styles/global.css` contains the site design and responsive styles.
 - `public/` contains static assets such as the logo.
+- `scripts/ci/setup-node.sh` provides the pinned Node.js/npm toolchain for Debian shell runners.
 - `legacy/website.html` preserves the pre-Astro source for reference.

@@ -3,8 +3,9 @@ stages:
   - deploy
 
 default:
-  image: node:24-bookworm-slim
+  image: node:24.18.0-bookworm-slim
   before_script:
+    - . ./scripts/ci/setup-node.sh
     - node --version
     - npm --version
   cache:
@@ -13,8 +14,10 @@ default:
         - package-lock.json
     paths:
       - .npm/
+      - .tools/
 
 variables:
+  NODE_VERSION: "24.18.0"
   NPM_CONFIG_CACHE: "$CI_PROJECT_DIR/.npm"
   ASTRO_TELEMETRY_DISABLED: "1"
 
