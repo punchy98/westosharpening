@@ -1,0 +1,44 @@
+stages:
+  - test
+  - deploy
+
+default:
+  image: node:24-bookworm-slim
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - .npm/
+
+variables:
+  NPM_CONFIG_CACHE: "$CI_PROJECT_DIR/.npm"
+  ASTRO_TELEMETRY_DISABLED: "1"
+
+build-site:
+  stage: test
+  script:
+    - npm ci --prefer-offline
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 week
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: "$CI_COMMIT_BRANCH"
+
+deploy-pages:
+  stage: deploy
+  needs:
+    - job: build-site
+      artifacts: true
+  script:
+    - test -f dist/index.html
+  pages:
+    publish: dist
+  environment:
+    name: production
+    url: $CI_PAGES_URL
+  rules:
+    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"

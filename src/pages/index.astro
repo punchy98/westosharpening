@@ -1,0 +1,131 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PricingItem from "../components/PricingItem.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+
+const title = "West O Sharpening | Professional Knife Sharpening";
+const description =
+  "Professional knife, scissor, and lawn-tool sharpening with convenient pickup, delivery, and drop-off service.";
+const assetBase = import.meta.env.BASE_URL;
+const currentYear = new Date().getFullYear();
+---
+
+<BaseLayout title={title} description={description}>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand-lockup">
+        <img
+          src={`${assetBase}west-o-logo.png`}
+          alt="West O Sharpening logo"
+          class="logo"
+          width="100"
+          height="72"
+        />
+        <div class="header-text">
+          <h1>WEST <span>O</span> SHARPENING</h1>
+          <p class="tagline">Professional Knife Sharpening Service</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="content-section" aria-labelledby="welcome-title">
+        <h2 class="section-title" id="welcome-title">Welcome to West O Sharpening!</h2>
+        <p class="intro-text">
+          With over a decade of experience honing my knife-sharpening skills, I am thrilled to extend my expertise to a wider audience. What started as a passion for keeping my own tools razor-sharp has evolved into a service dedicated to ensuring that your knives are always in pristine condition.
+        </p>
+        <p class="turnaround-badge">
+          <span aria-hidden="true">⚡</span> Most orders completed with next-day turnaround!
+        </p>
+      </section>
+
+      <section class="content-section" aria-labelledby="services-title">
+        <h2 class="section-title" id="services-title">Our Services</h2>
+        <div class="services-grid">
+          <ServiceCard icon="🚚" title="Pick-up & Delivery">
+            <p>We retrieve and return your knives to your doorstep for maximum convenience.</p>
+            <p class="service-note">A one-time $5 pickup and delivery fee applies.</p>
+          </ServiceCard>
+          <ServiceCard icon="📍" title="Drop-off Service">
+            <p>You drop your knives off and pick them up once they’re ready—simple and efficient.</p>
+          </ServiceCard>
+        </div>
+      </section>
+
+      <section class="content-section" aria-labelledby="pricing-title">
+        <h2 class="section-title" id="pricing-title">Standard Sharpening Prices</h2>
+        <div class="pricing-grid">
+          <PricingItem name="Kitchen Knives" price="$8" />
+          <PricingItem name="Pocket/EDC Knives" price="$15" />
+          <PricingItem
+            name="Scissors/Shears"
+            price="$8"
+            note="Household, craft, fabric, pinking, and similar shears. No salon shears at this time."
+          />
+          <PricingItem
+            name="Lawn Tools"
+            price="$10+"
+            note="Mower blades, pruners, loppers, hedge trimmers, and more."
+          />
+        </div>
+        <p class="tip-repair"><span aria-hidden="true">✨</span> Tip repairs are included!</p>
+      </section>
+
+      <section class="content-section" aria-labelledby="accounts-title">
+        <h2 class="section-title" id="accounts-title">Events & Commercial Accounts</h2>
+        <div class="services-grid">
+          <ServiceCard icon="🛒" title="Sharpen While You Shop Events">
+            <p>Want to host a sharpening event at your store, market, or community space? Give us a call and let’s set something up!</p>
+          </ServiceCard>
+          <ServiceCard icon="🏢" title="Commercial Sharpening">
+            <p>Need sharpening for your business one time or on a regular schedule? Call and ask about commercial account options and discounts.</p>
+          </ServiceCard>
+        </div>
+      </section>
+
+      <section class="content-section" aria-labelledby="methods-title">
+        <h2 class="section-title" id="methods-title">Sharpening Methods</h2>
+        <article class="method-details">
+          <h3><span aria-hidden="true">🔪</span> Kitchen Knives</h3>
+          <p>Sharpened on belt sanders by default. Stone sharpening is available upon request for an additional fee.</p>
+        </article>
+        <article class="method-details">
+          <h3><span aria-hidden="true">🗡️</span> EDC/Pocket Knives</h3>
+          <p>Done on stones and fixed-angle sharpeners. These knives receive a full cleaning and, for folding knives, pivot lubrication.</p>
+        </article>
+        <p class="special-request">If you have a specific request for your knives, please let me know. I am more than happy to accommodate.</p>
+      </section>
+
+      <section class="contact-section" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact Michael</h2>
+        <div class="contact-grid">
+          <article class="contact-method">
+            <h3><span aria-hidden="true">📞</span> Call or Text</h3>
+            <a href="tel:+16057607918">605-760-7918</a>
+          </article>
+          <article class="contact-method">
+            <h3><span aria-hidden="true">📧</span> Email</h3>
+            <a href="mailto:michael@westosharpening.com">michael@westosharpening.com</a>
+          </article>
+          <article class="contact-method">
+            <h3><span aria-hidden="true">📘</span> Facebook</h3>
+            <a href="https://facebook.com/westosharpening" target="_blank" rel="noreferrer">facebook.com/westosharpening</a>
+          </article>
+        </div>
+        <ul class="payment-methods" aria-label="Accepted payment methods">
+          <li>💵 Cash</li>
+          <li>📱 Venmo</li>
+          <li>💳 PayPal</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; {currentYear} West O Sharpening. Professional knife sharpening backed by over a decade of experience.</p>
+    </div>
+  </footer>
+</BaseLayout>

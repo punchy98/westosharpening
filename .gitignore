@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+.npm/
+
+# Astro build and cache
+dist/
+.astro/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Logs and operating-system files
+*.log
+.DS_Store
+Thumbs.db
