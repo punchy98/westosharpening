@@ -34,7 +34,7 @@ The workflow in `.github/workflows/deploy.yml`:
 4. Validates and audits dependencies, checks the Astro source, and creates a production build.
 5. Publishes successful `main` builds through GitHub Pages.
 
-Astro automatically detects the GitHub repository name and uses the correct project subpath. For a custom domain, create a repository variable named `SITE_URL`, such as `https://westosharpening.com`, and configure that same domain under **Settings > Pages**.
+Astro builds for the custom domain `https://westosharpening.com` by default, so assets are served from the domain root. Configure that domain under **Settings > Pages**. The optional `SITE_URL` repository variable can override the deployment URL for another environment.
 
 ## Project structure
 
