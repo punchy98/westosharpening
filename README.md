@@ -1,6 +1,6 @@
 # West O Sharpening
 
-The West O Sharpening website is a static [Astro](https://astro.build/) project. GitHub Actions validates every pull request and publishes the `main` branch with GitHub Pages.
+The West O Sharpening website is a static [Astro 7](https://astro.build/) project. GitHub Actions validates every pull request and publishes the `main` branch with GitHub Pages.
 
 ## Local development
 
