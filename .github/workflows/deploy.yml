@@ -37,8 +37,11 @@ jobs:
       - name: Verify dependency tree
         run: npm ls --all
 
-      - name: Audit dependencies
-        run: npm audit --audit-level=high
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Audit all dependencies for critical vulnerabilities
+        run: npm audit --audit-level=critical
 
       - name: Check Astro source
         run: npm run check

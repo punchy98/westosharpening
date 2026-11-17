@@ -31,8 +31,9 @@ The workflow in `.github/workflows/deploy.yml`:
 1. Runs for pull requests, pushes to `main`, and manual dispatches.
 2. Installs the pinned Node.js release and restores the npm cache.
 3. Performs a clean lockfile install with the project's install-script policy.
-4. Validates and audits dependencies, checks the Astro source, and creates a production build.
-5. Publishes successful `main` builds through GitHub Pages.
+4. Audits production dependencies at high severity and the full build-time tree at critical severity.
+5. Checks the Astro source and creates a production build.
+6. Publishes successful `main` builds through GitHub Pages.
 
 Astro builds for the custom domain `https://westosharpening.com` by default, so assets are served from the domain root. Configure that domain under **Settings > Pages**. The optional `SITE_URL` repository variable can override the deployment URL for another environment.
 
