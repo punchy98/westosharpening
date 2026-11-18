@@ -696,15 +696,6 @@ main {
   border-radius: 999px;
 }
 
-.gallery-note {
-  margin: 1.25rem 0 0;
-  padding: 0.8rem 1rem;
-  color: #5b4947;
-  background: var(--soft-red);
-  border-radius: 6px;
-  font-size: 0.9rem;
-}
-
 .about-quote blockquote {
   margin-bottom: 0;
   color: var(--ink);
