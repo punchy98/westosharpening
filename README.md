@@ -48,4 +48,4 @@ Astro builds for the custom domain `https://westosharpening.com` by default, so 
 - `public/` contains static assets such as the logo and previous-work images.
 - `legacy/website.html` preserves the pre-Astro source for reference.
 
-The carousel currently uses clearly labeled placeholders in `public/images/previous-work/`. Replace those files with customer-approved project photos and update the filenames and alternative text in `src/pages/index.astro` when real work photos are available.
+The carousel uses real before-and-after project photos from `public/images/previous-work/`. Project groupings, labels, descriptions, and alternative text are configured in `src/pages/index.astro`.

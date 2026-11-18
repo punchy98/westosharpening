@@ -569,11 +569,60 @@ main {
   background: var(--ink);
 }
 
-.carousel-slide img {
+.work-photo-grid {
+  display: grid;
+  min-height: clamp(460px, 58vw, 660px);
+  background: #11171b;
+}
+
+.work-photo-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.work-photo-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.work-photo {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border-right: 1px solid rgb(255 255 255 / 18%);
+}
+
+.work-photo:last-child {
+  border-right: 0;
+}
+
+.work-photo img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  height: 100%;
+  object-fit: contain;
+}
+
+.work-photo-label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.45rem 0.7rem;
+  color: #fff;
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 4px;
+  box-shadow: 0 6px 16px rgb(0 0 0 / 28%);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.work-photo-label.is-before {
+  background: rgb(32 39 45 / 94%);
+}
+
+.work-photo-label.is-after {
+  background: rgb(169 21 21 / 94%);
 }
 
 .carousel-slide figcaption {
@@ -1101,8 +1150,29 @@ main {
     margin-top: 0.5rem;
   }
 
-  .carousel-slide img {
-    aspect-ratio: 4 / 3;
+  .work-photo-grid {
+    min-height: 430px;
+  }
+
+  .work-photo-grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .work-photo-grid-3 .work-photo:first-child {
+    grid-column: 1 / -1;
+    min-height: 380px;
+    border-right: 0;
+    border-bottom: 1px solid rgb(255 255 255 / 18%);
+  }
+
+  .work-photo-grid-3 .work-photo:not(:first-child) {
+    min-height: 360px;
+  }
+
+  .work-photo-label {
+    top: 0.7rem;
+    left: 0.7rem;
+    font-size: 0.66rem;
   }
 
   .carousel-slide figcaption {

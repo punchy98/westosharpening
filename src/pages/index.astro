@@ -13,22 +13,41 @@ const assetBase = import.meta.env.BASE_URL;
 
 const workItems = [
   {
-    image: `${assetBase}images/previous-work/kitchen-knives-placeholder.svg`,
-    alt: "Photo placeholder for a set of professionally sharpened kitchen knives",
-    title: "Kitchen knives",
-    description: "A future spot for before-and-after photos of chef knives, paring knives, and full kitchen sets.",
+    title: "Shear tip repair",
+    description: "A damaged point and worn edge reshaped and sharpened for a clean, useful cutting edge.",
+    photos: [
+      {
+        image: `${assetBase}images/previous-work/work-img-2426.jpg`,
+        alt: "Damaged shear tip and worn cutting edge before repair",
+        label: "Before",
+      },
+      {
+        image: `${assetBase}images/previous-work/work-img-2432.jpg`,
+        alt: "Repaired shear tip with a newly sharpened cutting edge",
+        label: "After",
+      },
+    ],
   },
   {
-    image: `${assetBase}images/previous-work/pocket-knives-placeholder.svg`,
-    alt: "Photo placeholder for a professionally sharpened pocket knife",
-    title: "Pocket and EDC knives",
-    description: "A future spot for finished edges, cleaned folders, and detailed pocket-knife work.",
-  },
-  {
-    image: `${assetBase}images/previous-work/lawn-tools-placeholder.svg`,
-    alt: "Photo placeholder for professionally sharpened lawn tools",
-    title: "Lawn and garden tools",
-    description: "A future spot for mower blades, pruners, loppers, and other hard-working tools.",
+    title: "Pocket knife restoration",
+    description: "A three-blade pocket knife cleaned, restored, and sharpened, shown before and from two finished angles.",
+    photos: [
+      {
+        image: `${assetBase}images/previous-work/work-img-3288.jpg`,
+        alt: "Three-blade pocket knife with tarnished blades before restoration",
+        label: "Before",
+      },
+      {
+        image: `${assetBase}images/previous-work/work-img-3916.jpg`,
+        alt: "Restored pocket knife with the polished main blade open",
+        label: "After — main blade",
+      },
+      {
+        image: `${assetBase}images/previous-work/work-img-3919.jpg`,
+        alt: "Restored pocket knife with a polished detail blade open",
+        label: "After — detail blade",
+      },
+    ],
   },
 ];
 ---

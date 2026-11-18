@@ -1,9 +1,14 @@
 ---
-interface WorkItem {
+interface WorkPhoto {
   image: string;
   alt: string;
+  label: string;
+}
+
+interface WorkItem {
   title: string;
   description: string;
+  photos: WorkPhoto[];
 }
 
 interface Props {
@@ -27,7 +32,23 @@ const { items } = Astro.props;
       <div class="carousel-track" data-carousel-track>
         {items.map((item, index) => (
           <figure class="carousel-slide" data-carousel-slide aria-hidden={index === 0 ? "false" : "true"}>
-            <img src={item.image} alt={item.alt} width="1200" height="750" loading="lazy" />
+            <div class:list={["work-photo-grid", `work-photo-grid-${item.photos.length}`]}>
+              {item.photos.map((photo) => (
+                <div class="work-photo">
+                  <img
+                    src={photo.image}
+                    alt={photo.alt}
+                    width="1350"
+                    height="1800"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class:list={["work-photo-label", photo.label === "Before" ? "is-before" : "is-after"]}>
+                    {photo.label}
+                  </span>
+                </div>
+              ))}
+            </div>
             <figcaption>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
@@ -61,7 +82,7 @@ const { items } = Astro.props;
   </div>
 
   <p class="gallery-note">
-    <strong>Photo gallery ready:</strong> these clearly marked placeholders can be replaced with real customer-approved project photos as they become available.
+    <strong>Before and after:</strong> each project keeps its starting condition and finished result together for an easy comparison.
   </p>
 </section>
 
