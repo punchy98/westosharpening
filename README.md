@@ -39,9 +39,13 @@ Astro builds for the custom domain `https://westosharpening.com` by default, so 
 
 ## Project structure
 
-- `src/pages/index.astro` contains the page content.
-- `src/components/` contains reusable service and pricing cards.
-- `src/layouts/BaseLayout.astro` contains document metadata and the shared page shell.
+- `src/pages/index.astro` contains the homepage, services, pricing, and previous-work gallery.
+- `src/pages/about.astro` contains Michael's story and service philosophy.
+- `src/pages/blog/` contains the blog index and knife-care articles.
+- `src/components/` contains reusable cards and the accessible previous-work carousel.
+- `src/layouts/` contains document metadata, shared navigation, the footer, and article framing.
 - `src/styles/global.css` contains the site design and responsive styles.
-- `public/` contains static assets such as the logo.
+- `public/` contains static assets such as the logo and previous-work images.
 - `legacy/website.html` preserves the pre-Astro source for reference.
+
+The carousel currently uses clearly labeled placeholders in `public/images/previous-work/`. Replace those files with customer-approved project photos and update the filenames and alternative text in `src/pages/index.astro` when real work photos are available.

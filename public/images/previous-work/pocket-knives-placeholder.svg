@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-labelledby="title desc">
+  <title id="title">Pocket knife photo placeholder</title>
+  <desc id="desc">A branded placeholder showing a folding pocket knife silhouette.</desc>
+  <rect width="1200" height="750" fill="#20272d"/>
+  <circle cx="930" cy="110" r="330" fill="#c91f1f" opacity=".2"/>
+  <g transform="translate(175 230) rotate(7 420 120)">
+    <path d="M410 126C560 30 696 20 850 42c-75 101-193 179-386 204Z" fill="#f5f5f2"/>
+    <path d="M24 111h456v165H24c-46 0-83-37-83-83s37-82 83-82Z" fill="#c91f1f"/>
+    <circle cx="410" cy="194" r="24" fill="#20272d" stroke="#f5f5f2" stroke-width="8"/>
+    <circle cx="38" cy="194" r="13" fill="#f5f5f2"/>
+  </g>
+  <text x="600" y="620" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="46" font-weight="700">POCKET &amp; EDC KNIVES</text>
+  <text x="600" y="675" text-anchor="middle" fill="#d7dde1" font-family="Arial, sans-serif" font-size="26">Replace with a real project photo</text>
+</svg>

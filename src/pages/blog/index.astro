@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import { blogPosts } from "../../data/blogPosts";
+
+const title = "Knife Care Blog | West O Sharpening";
+const description =
+  "Practical knife care, maintenance, and safety guidance from West O Sharpening.";
+const assetBase = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title={title} description={description}>
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container narrow-container">
+        <p class="eyebrow">From the workbench</p>
+        <h1>Better habits for sharper, safer tools.</h1>
+        <p>Practical guidance for protecting your edges, caring for your knives, and knowing when it is time for professional sharpening.</p>
+      </div>
+    </section>
+
+    <div class="container page-sections">
+      <section class="content-section" aria-labelledby="articles-title">
+        <p class="eyebrow">Latest articles</p>
+        <h2 class="section-title" id="articles-title">Knife care and kitchen safety</h2>
+        <div class="blog-grid">
+          {blogPosts.map((post) => (
+            <BlogCard
+              title={post.title}
+              description={post.description}
+              category={post.category}
+              href={`${assetBase}blog/${post.slug}/`}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section class="article-cta compact-cta">
+        <p class="eyebrow eyebrow-light">Need an edge reset?</p>
+        <h2>Leave the sharpening to Michael.</h2>
+        <p>Most orders are completed with next-day turnaround.</p>
+        <a class="button-link button-light" href="tel:+16057607918">Call or text 605-760-7918</a>
+      </section>
+    </div>
+  </main>
+</BaseLayout>

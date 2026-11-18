@@ -1,0 +1,36 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  category: string;
+}
+
+const { title, description, category } = Astro.props;
+const assetBase = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title={`${title} | West O Sharpening`} description={description}>
+  <main id="main-content">
+    <article class="article-shell container">
+      <header class="article-header">
+        <a class="back-link" href={`${assetBase}blog/`}><span aria-hidden="true">←</span> Back to the blog</a>
+        <p class="eyebrow">{category}</p>
+        <h1>{title}</h1>
+        <p class="article-deck">{description}</p>
+      </header>
+
+      <div class="article-content">
+        <slot />
+      </div>
+
+      <aside class="article-cta" aria-label="Professional sharpening call to action">
+        <p class="eyebrow eyebrow-light">When maintenance is not enough</p>
+        <h2>Bring the edge back professionally.</h2>
+        <p>Call or text Michael to arrange sharpening with convenient pickup, delivery, or drop-off service.</p>
+        <a class="button-link button-light" href="tel:+16057607918">Call or text 605-760-7918</a>
+      </aside>
+    </article>
+  </main>
+</BaseLayout>

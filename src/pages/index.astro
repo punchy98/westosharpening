@@ -1,48 +1,69 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogCard from "../components/BlogCard.astro";
 import PricingItem from "../components/PricingItem.astro";
+import PreviousWorkCarousel from "../components/PreviousWorkCarousel.astro";
 import ServiceCard from "../components/ServiceCard.astro";
+import { blogPosts } from "../data/blogPosts";
 
 const title = "West O Sharpening | Professional Knife Sharpening";
 const description =
   "Professional knife, scissor, and lawn-tool sharpening with convenient pickup, delivery, and drop-off service.";
 const assetBase = import.meta.env.BASE_URL;
-const currentYear = new Date().getFullYear();
+
+const workItems = [
+  {
+    image: `${assetBase}images/previous-work/kitchen-knives-placeholder.svg`,
+    alt: "Photo placeholder for a set of professionally sharpened kitchen knives",
+    title: "Kitchen knives",
+    description: "A future spot for before-and-after photos of chef knives, paring knives, and full kitchen sets.",
+  },
+  {
+    image: `${assetBase}images/previous-work/pocket-knives-placeholder.svg`,
+    alt: "Photo placeholder for a professionally sharpened pocket knife",
+    title: "Pocket and EDC knives",
+    description: "A future spot for finished edges, cleaned folders, and detailed pocket-knife work.",
+  },
+  {
+    image: `${assetBase}images/previous-work/lawn-tools-placeholder.svg`,
+    alt: "Photo placeholder for professionally sharpened lawn tools",
+    title: "Lawn and garden tools",
+    description: "A future spot for mower blades, pruners, loppers, and other hard-working tools.",
+  },
+];
 ---
 
 <BaseLayout title={title} description={description}>
-  <header class="site-header">
-    <div class="container">
-      <div class="brand-lockup">
-        <img
-          src={`${assetBase}west-o-logo.png`}
-          alt="West O Sharpening logo"
-          class="logo"
-          width="100"
-          height="72"
-        />
-        <div class="header-text">
-          <h1>WEST <span>O</span> SHARPENING</h1>
-          <p class="tagline">Professional Knife Sharpening Service</p>
+  <main id="main-content">
+    <section class="home-hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Precision edges. Personal service.</p>
+          <h1>Make every cut feel right again.</h1>
+          <p>
+            Professional sharpening for kitchen knives, pocket knives, scissors, and lawn tools—backed by more than 15 years of hands-on experience.
+          </p>
+          <div class="hero-actions">
+            <a class="button-link" href="#pricing">View pricing</a>
+            <a class="button-link button-secondary" href="tel:+16057607918">Call or text</a>
+          </div>
         </div>
+        <aside class="hero-panel" aria-label="Service highlights">
+          <p class="hero-panel-label">Most orders</p>
+          <p class="hero-panel-value">Next-day turnaround</p>
+          <ul>
+            <li>Pickup and delivery available</li>
+            <li>Convenient drop-off service</li>
+            <li>Tip repairs included</li>
+          </ul>
+        </aside>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <main>
-    <div class="container">
-      <section class="content-section" aria-labelledby="welcome-title">
-        <h2 class="section-title" id="welcome-title">Welcome to West O Sharpening!</h2>
-        <p class="intro-text">
-          With over a decade of experience honing my knife-sharpening skills, I am thrilled to extend my expertise to a wider audience. What started as a passion for keeping my own tools razor-sharp has evolved into a service dedicated to ensuring that your knives are always in pristine condition.
-        </p>
-        <p class="turnaround-badge">
-          <span aria-hidden="true">⚡</span> Most orders completed with next-day turnaround!
-        </p>
-      </section>
-
+    <div class="container page-sections">
       <section class="content-section" aria-labelledby="services-title">
-        <h2 class="section-title" id="services-title">Our Services</h2>
+        <p class="eyebrow">Simple and convenient</p>
+        <h2 class="section-title" id="services-title">Sharpening that fits your schedule</h2>
         <div class="services-grid">
           <ServiceCard icon="🚚" title="Pick-up & Delivery">
             <p>We retrieve and return your knives to your doorstep for maximum convenience.</p>
@@ -54,7 +75,8 @@ const currentYear = new Date().getFullYear();
         </div>
       </section>
 
-      <section class="content-section" aria-labelledby="pricing-title">
+      <section class="content-section" id="pricing" aria-labelledby="pricing-title">
+        <p class="eyebrow">Clear, straightforward rates</p>
         <h2 class="section-title" id="pricing-title">Standard Sharpening Prices</h2>
         <div class="pricing-grid">
           <PricingItem name="Kitchen Knives" price="$8" />
@@ -73,7 +95,10 @@ const currentYear = new Date().getFullYear();
         <p class="tip-repair"><span aria-hidden="true">✨</span> Tip repairs are included!</p>
       </section>
 
+      <PreviousWorkCarousel items={workItems} />
+
       <section class="content-section" aria-labelledby="accounts-title">
+        <p class="eyebrow">More ways to sharpen</p>
         <h2 class="section-title" id="accounts-title">Events & Commercial Accounts</h2>
         <div class="services-grid">
           <ServiceCard icon="🛒" title="Sharpen While You Shop Events">
@@ -86,6 +111,7 @@ const currentYear = new Date().getFullYear();
       </section>
 
       <section class="content-section" aria-labelledby="methods-title">
+        <p class="eyebrow">The right method for the tool</p>
         <h2 class="section-title" id="methods-title">Sharpening Methods</h2>
         <article class="method-details">
           <h3><span aria-hidden="true">🔪</span> Kitchen Knives</h3>
@@ -98,8 +124,29 @@ const currentYear = new Date().getFullYear();
         <p class="special-request">If you have a specific request for your knives, please let me know. I am more than happy to accommodate.</p>
       </section>
 
-      <section class="contact-section" aria-labelledby="contact-title">
-        <h2 id="contact-title">Contact Michael</h2>
+      <section class="content-section" aria-labelledby="blog-title">
+        <div class="section-heading-row">
+          <div>
+            <p class="eyebrow">From the workbench</p>
+            <h2 class="section-title" id="blog-title">Knife care and safety</h2>
+          </div>
+          <a class="text-link" href={`${assetBase}blog/`}>View all articles <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="blog-grid">
+          {blogPosts.map((post) => (
+            <BlogCard
+              title={post.title}
+              description={post.description}
+              category={post.category}
+              href={`${assetBase}blog/${post.slug}/`}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <p class="eyebrow eyebrow-light">Ready for a better edge?</p>
+        <h2 id="contact-title">Get your tools sharpened</h2>
         <div class="contact-grid">
           <article class="contact-method">
             <h3><span aria-hidden="true">📞</span> Call or Text</h3>
@@ -122,10 +169,4 @@ const currentYear = new Date().getFullYear();
       </section>
     </div>
   </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; {currentYear} West O Sharpening. Professional knife sharpening backed by over a decade of experience.</p>
-    </div>
-  </footer>
 </BaseLayout>

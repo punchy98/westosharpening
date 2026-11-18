@@ -1,0 +1,72 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "About | West O Sharpening";
+const description =
+  "Learn how a first whetstone from Michael's grandfather became more than 15 years of sharpening experience and West O Sharpening.";
+const assetBase = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title={title} description={description}>
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container narrow-container">
+        <p class="eyebrow">About West O Sharpening</p>
+        <h1>A craft built one edge at a time.</h1>
+        <p>West O Sharpening is built on patience, practice, and respect for the tools people count on every day.</p>
+      </div>
+    </section>
+
+    <div class="container narrow-container page-sections">
+      <section class="content-section story-section" aria-labelledby="story-title">
+        <p class="eyebrow">Where it began</p>
+        <h2 class="section-title" id="story-title">My grandfather gave me my first whetstone.</h2>
+        <p class="intro-text">
+          More than 15 years ago, that gift started my journey into knife sharpening and a personal quest for the perfect edge. Since then, I’ve refined my technique by sharpening my own tools and caring for the knives of friends and family.
+        </p>
+        <p>
+          Years of practice—and the trust and satisfaction of friends and family—helped turn a long-practiced craft into West O Sharpening, a local service focused on dependable results and personal care.
+        </p>
+      </section>
+
+      <section class="content-section" aria-labelledby="commitment-title">
+        <p class="eyebrow">The commitment</p>
+        <h2 class="section-title" id="commitment-title">Your tools get the care I give my own.</h2>
+        <div class="commitment-grid">
+          <article>
+            <span aria-hidden="true">01</span>
+            <h3>Respect for the tool</h3>
+            <p>From a prized pocket knife to a cherished heirloom or a whole kitchen set, every blade is handled thoughtfully.</p>
+          </article>
+          <article>
+            <span aria-hidden="true">02</span>
+            <h3>A reliable working edge</h3>
+            <p>The goal is simple: return tools that cut cleanly, feel controlled, and are ready to work.</p>
+          </article>
+          <article>
+            <span aria-hidden="true">03</span>
+            <h3>Personal service</h3>
+            <p>Questions and special requests are welcome. I’m happy to discuss the edge and method that fit your needs.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-quote" aria-label="Michael's philosophy">
+        <blockquote>
+          “I take pride in bringing new life to the tools people rely on.”
+        </blockquote>
+      </section>
+
+      <section class="contact-section" id="contact" aria-labelledby="about-contact-title">
+        <p class="eyebrow eyebrow-light">Let’s talk about your tools</p>
+        <h2 id="about-contact-title">Ready to experience the difference?</h2>
+        <p>Your satisfaction is my top priority. I look forward to serving you and your knives with the same care and dedication I give to my own.</p>
+        <div class="hero-actions centered-actions">
+          <a class="button-link button-light" href="tel:+16057607918">Call or text 605-760-7918</a>
+          <a class="button-link button-outline-light" href="mailto:michael@westosharpening.com">Send an email</a>
+        </div>
+        <a class="back-link back-link-light" href={assetBase}><span aria-hidden="true">←</span> Back to services and pricing</a>
+      </section>
+    </div>
+  </main>
+</BaseLayout>
