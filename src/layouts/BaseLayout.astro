@@ -7,10 +7,23 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const currentYear = new Date().getFullYear();
 const canonicalUrl = Astro.site
   ? new URL(Astro.url.pathname, Astro.site)
   : Astro.url;
 const assetBase = import.meta.env.BASE_URL;
+const homePath = assetBase;
+const aboutPath = `${assetBase}about/`;
+const blogPath = `${assetBase}blog/`;
+const contactPath = `${assetBase}#contact`;
+const normalizePath = (path: string) => path.replace(/\/+$/, "") || "/";
+const currentPath = normalizePath(Astro.url.pathname);
+const isActive = (path: string, includeChildren = false) => {
+  const targetPath = normalizePath(new URL(path, Astro.url.origin).pathname);
+  return includeChildren
+    ? currentPath === targetPath || currentPath.startsWith(`${targetPath}/`)
+    : currentPath === targetPath;
+};
 ---
 
 <!doctype html>
@@ -25,6 +38,47 @@ const assetBase = import.meta.env.BASE_URL;
     <title>{title}</title>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand-lockup" href={homePath} aria-label="West O Sharpening home">
+          <img
+            src={`${assetBase}west-o-logo.png`}
+            alt=""
+            class="logo"
+            width="100"
+            height="72"
+          />
+          <span class="header-text">
+            <span class="brand-name">WEST <span>O</span> SHARPENING</span>
+            <span class="tagline">Professional Knife Sharpening Service</span>
+          </span>
+        </a>
+
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <a href={homePath} aria-current={isActive(homePath) ? "page" : undefined}>Home</a>
+          <a href={aboutPath} aria-current={isActive(aboutPath) ? "page" : undefined}>About</a>
+          <a href={blogPath} aria-current={isActive(blogPath, true) ? "page" : undefined}>Blog</a>
+          <a class="nav-cta" href={contactPath}>Get in touch</a>
+        </nav>
+      </div>
+    </header>
+
     <slot />
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <p class="footer-brand">West O Sharpening</p>
+          <p>Professional sharpening with more than 15 years of hands-on experience.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <a href={homePath}>Home</a>
+          <a href={aboutPath}>About</a>
+          <a href={blogPath}>Blog</a>
+        </nav>
+        <p class="copyright">&copy; {currentYear} West O Sharpening</p>
+      </div>
+    </footer>
   </body>
 </html>
